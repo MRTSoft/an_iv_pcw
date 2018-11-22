@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chestionar</title>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<meta charset="utf-8">
+</head>
+<body>
+<section ng-app="main" ng-controller="ctrl">
+	<article ng-repeat="q in db">
+		<h2>{{ q.text }}</h2>
+		<h3> Intrebarea {{qCurrentId}} din {{qTotal}}</h3>
+		<article>
+			<div style="display: {{ (q.tip == 'text')? 'inherit' : 'none'; }}">
+				<input type="text" value="{{aAnsText}}">
+			</div>
+
+			<div style="display: {{ (q.tip == 'numeric')? 'inherit' : 'none'; }}">
+				<input type="number" value="{{aAnsText}}">
+			</div>
+
+			<div style="display: {{ (q.tip == 'simplu')? 'inherit' : 'none'; }}">
+				<label ng-repeat="a in q.raspunsuri">
+					<input type="radio" name="q.text" value="{{a}}">{{a}}<br/>
+				</label>
+			</div>
+		</article>
+	</article>
+</section>
+</body>
+</html>
