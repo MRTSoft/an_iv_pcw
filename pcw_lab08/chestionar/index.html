@@ -9,8 +9,7 @@
 <body>
 <section ng-app="main" ng-controller="ctrl">
 	<article ng-repeat="q in db">
-		<h2>{{ q.text }}</h2>
-		<h3> Intrebarea {{qCurrentId}} din {{qTotal}}</h3>
+		<h2>{{ q.id }}. {{ q.text }}</h2>
 		<article>
 			<div style="display: {{ (q.tip == 'text')? 'inherit' : 'none'; }}">
 				<input type="text" value="{{aAnsText}}">
@@ -22,10 +21,19 @@
 
 			<div style="display: {{ (q.tip == 'simplu')? 'inherit' : 'none'; }}">
 				<label ng-repeat="a in q.raspunsuri">
-					<input type="radio" name="q.text" value="{{a}}">{{a}}<br/>
+					<input type="radio" name="{{q.id}}" value="{{a}}">{{a}}<br/>
+				</label>
+			</div>
+			
+			<div style="display: {{ (q.tip == 'multiplu')? 'inherit' : 'none'; }}">
+				<label ng-repeat="a in q.raspunsuri">
+					<input type="checkbox" name="{{q.id}}" value="{{a}}">{{a}}<br/>
 				</label>
 			</div>
 		</article>
+	</article>
+	<article>
+		<button>Check Answers</button>
 	</article>
 </section>
 </body>

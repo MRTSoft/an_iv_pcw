@@ -11,6 +11,44 @@
 			]
 		},
 		{
+			"text" : "Ce protocoale foloseste DNS-ul?",
+			"tip" : "multiplu",
+			"raspunsuri" : [
+				"IP",
+				"UDP",
+				"TCP",
+				"Ethernet"
+			],
+			"corecte" : [
+				"10000"
+			]
+		},
+		{
+			"text" : "Ce protocoale foloseste DNS-ul?",
+			"tip" : "multiplu",
+			"raspunsuri" : [
+				"IP",
+				"UDP",
+				"TCP",
+				"Ethernet"
+			],
+			"corecte" : [
+				"10000"
+			]
+		},
+		{
+			"text" : "Care e cel mai lung fluviu din Europa?",
+			"tip" : "simplu",
+			"raspunsuri" : [
+				"Dunare",
+				"Volga",
+				"Rin"
+			],
+			"corecte" : [
+				"Volga"
+			]
+		},
+		{
 			"text" : "Care e cel mai lung fluviu din Europa?",
 			"tip" : "simplu",
 			"raspunsuri" : [
