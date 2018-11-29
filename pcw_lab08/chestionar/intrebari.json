@@ -4,7 +4,6 @@
 			"text" : "Cati litri sunt in 10 metri cubi?",
 			"tip" : "numeric",
 			"raspunsuri" : [
-				"10000"
 			],
 			"corecte" : [
 				"10000"
@@ -20,32 +19,18 @@
 				"Ethernet"
 			],
 			"corecte" : [
-				"10000"
-			]
-		},
-		{
-			"text" : "Ce protocoale foloseste DNS-ul?",
-			"tip" : "multiplu",
-			"raspunsuri" : [
 				"IP",
 				"UDP",
-				"TCP",
 				"Ethernet"
-			],
-			"corecte" : [
-				"10000"
 			]
 		},
 		{
-			"text" : "Care e cel mai lung fluviu din Europa?",
-			"tip" : "simplu",
+			"text" : "Cum se numeste metoda invocata pentru a instantia o clasa?",
+			"tip" : "text",
 			"raspunsuri" : [
-				"Dunare",
-				"Volga",
-				"Rin"
 			],
 			"corecte" : [
-				"Volga"
+				"constructor"
 			]
 		},
 		{
