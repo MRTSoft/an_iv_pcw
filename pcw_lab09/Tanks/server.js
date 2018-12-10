@@ -21,9 +21,8 @@ function handleFileRequest(request, response){
 	if (request.url == '/'){
 		file = 'client.html';
 	}
-	fileStat = fs.statSync(file);
 	console.log("Requested the file: " + file);
-	if (fileStat.isFile()){
+	if (fs.existsSync(file)){
 		fs.readFile(file, (err, data) => {
 			if (err){
 				//TODO: add handling for file types
@@ -32,14 +31,15 @@ function handleFileRequest(request, response){
 			else{
 				response.write(data);
 			}
+			response.end();
 		})
 	}
 	else
 	{
-		response.writeHead(200, {'Content-Type': 'text/plain'});
-		response.write("Requested the file: " + file);
+		response.writeHead(404, {'Content-Type': 'text/plain'});
+		response.write("Requested non-existent file: " + file);
+		response.end();
 	}
-	response.end();
 }
 
 function handleAPICall(request, response) {
