@@ -1,0 +1,20 @@
+{
+  "name": "tanks",
+  "version": "1.0.0",
+  "description": "A tanks game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "tanks",
+    "shooter",
+    "game"
+  ],
+  "author": "Tudor Marcu",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}
