@@ -1,0 +1,19 @@
+.center-box {
+  display: flex;
+  height: calc(98vh);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.center-box > canvas {
+	box-sizing: border-box;
+	width: calc(95vw);
+	height: calc(95vh);
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	background: gray; /* DEBUG */
+}
