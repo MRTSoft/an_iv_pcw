@@ -3,13 +3,31 @@
 <head>
 	<title>Tanks!</title>
 	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="client_js/client.js"></script>
+
+<!-- First page -->
+<div id="overlay">
+  <div id="overlay-text">
+  	<h1>Tanks!</h1>
+  	<label>Nickname:
+  		<input type="text" name="player" id="player">
+  	</label>
+  	<br/>
+  	<button onclick="registerGame();">Play</button>
+  </div>
+</div>
+
+<!-- Game screen -->
 <div id="screen" class="center-box">
-<canvas id="c" style="background: white;">
+<canvas id="c">
 	</div>
 </canvas>
+
+
 </body>
 </html>
