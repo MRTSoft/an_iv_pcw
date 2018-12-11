@@ -1,0 +1,33 @@
+{
+	"produse" : [
+		{
+			"titlu" : "Smartphone Xiaomi Pocophone F1",
+			"pret" : "1.529,00 RON",
+			"descriere" : "Snapdragon 845 2.8GHz, Octa Core 64GB, 6GB RAM, Dual SIM, 4G, Tri-Camera: 20 mpx + 12 mpx + 5 mpx, Quick Charge 3.0, Baterie 4000 mAh, Liquid Cooling System, Graphite Black",
+			"imagini" : [
+				"img/p11.jpg",
+				"img/p12.jpg",
+				"img/p13.jpg"
+			]
+		},
+		{
+			"titlu" : "Smartphone Samsung Galaxy A6 (2018)",
+			"pret" : "1.099,99 RON",
+			"descriere" : "Ecran Full HD+, Infinity Display Super AMOLED, Octa Core, 32GB, 3GB RAM, Dual SIM, 4G, NFC, Senzor amprenta, Full Metal Body, Black",
+			"imagini" : [
+				"img/p21.jpg",
+				"img/p22.jpg",
+				"img/p23.jpg"
+			]
+		},
+		{
+			"titlu" : "Smartphone Xiaomi Mi A2 Lite",
+			"pret" : "853,99 RON",
+			"descriere" : "Ecran 18:9, Full HD+, Snapdragon 625 2GHz, Octa Core, 64GB, 4GB RAM, Dual SIM, 4G, Tri-Camera: 12 mpx + 5 mpx + 5 mpx, baterie 4000 mAh, Fast Charge, Senzor amprenta, Android ONE, Black",
+			"imagini" : [
+				"img/p31.jpg",
+				"img/p32.jpg"
+			]
+		}
+	]
+}

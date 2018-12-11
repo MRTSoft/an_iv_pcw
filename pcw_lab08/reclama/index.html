@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reclama ta aici</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+	<section class="container-fluid" ng-app="main" ng-controller="ctrl">
+		<div class="row">
+			<h1 class=""col-sm-12>{{db[index].titlu}}</h1>
+		</div>
+		<article class="row">
+			<img class="col-sm-4" src="{{db[index].imagini[imgIndex]}}" >
+
+			<div class="col-sm-2" ng-repeat="img in db[index].imagini" >
+				<img src="{{img}}" width="200" height="200" ng-click="swapImage(img)">
+			</div>
+			
+			<section class="col-sm-6">
+				<h2>Descriere</h2>
+				<div>
+					{{db[index].descriere}}
+				</div>
+				<h2>Pret: {{db[index].pret}}</h2>
+			</section>
+		</article>
+		<article class="row">
+			<h3>Alte produse</h3>
+			<div ng-repeat="prod in db" >
+					<img src="{{prod.imagini[0]}}" width="200" height="200" ng-click="swapProduct(db.indexOf(prod))" style="float: left;">
+				</div>
+		</article>
+	</section>
+</body>
+</html>
