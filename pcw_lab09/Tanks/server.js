@@ -69,6 +69,10 @@ io.on('connection', function(socket){
   socket.on('fire', function(data){handleFire(socket, data);});
 
   socket.on('aim', function(data){handleAim(data)});
+
+  socket.on('hit', function(data){handleHit(socket, data)});
+
+  socket.on('miss', function(data){handleMiss(socket, data)});
 });
 
 function handleJoin(socket, data){
@@ -105,12 +109,7 @@ function handleFire(socket, data){
 			return;
 		}
 		simulatePlay(data);
-		game = serverData.ongoingGames[data.gameId];
-		if (game){
-			message = new goMessage(data.gameId);
-			io.to(game.players[0]).emit('go', message);
-			io.to(game.players[1]).emit('go', message);
-		}
+		
 	}
 }
 
@@ -133,21 +132,29 @@ function simulatePlay(data){
 	if (game.nextMove == game.players[1]){
 		origin.x = 2;
 	}
-	if (distanceToTarget(game.target, data.angle, data.power, origin) < target.radius){
-		game.points[game.nextMove]++; //add a point
-		game.target = generateTarget();
-		if (game.points[game.nextMove] == 10){
-			io.to(game.nextMove).emit('win', {});
-			io.to(game.getOponentOf(game.nextMove)).emit('lost', data);
-			delete serverData.ongoingGames[data.gameId];
-			return;
-		}
-	}
 	serverData.ongoingGames[data.gameId].nextPlayer();
 }
 
-function distanceToTarget(target, angle, power, origin){
-	return 1;
+function handleHit(socket, data) {
+	game = serverData.ongoingGames[data.gameId];
+	serverData.ongoingGames[data.gameId].points[data.id]++; //add a point
+	game.target = generateTarget();
+	if (game.points[data.id] == 5){
+		io.to(data.id).emit('win', {});
+		io.to(game.getOponentOf(data.id)).emit('lost', data);
+		delete serverData.ongoingGames[data.gameId];
+		return;
+	}
+
+	message = new goMessage(data.gameId);
+	io.to(game.players[0]).emit('go', message);
+	io.to(game.players[1]).emit('go', message);
+};
+
+function handleMiss(socket, data){
+	message = new goMessage(data.gameId);
+	io.to(game.players[0]).emit('go', message);
+	io.to(game.players[1]).emit('go', message);
 }
 
 var serverData = {
@@ -158,10 +165,10 @@ var serverData = {
 
 function generateTarget(){
 	playArea = {
-		x1: 0.1,
-		y1: 0.1,
-		x2: 1.9,
-		y2: 0.9,
+		x1: 0.5,
+		y1: 0.25,
+		x2: 1.5,
+		y2: 0.75,
 	}
 	function inInterval(a, b, c){
 		return (c >= a) && (c <= b);
@@ -170,11 +177,11 @@ function generateTarget(){
 		target = {
 			x : 2 * Math.random(), 
 			y: Math.random(), 
-			radius = 0.05,
+			radius : 0.09,
 		}
 	}while(
-		inInterval(playArea.x1, playArea.x2, target.x) && 
-		inInterval(playArea.y1, playArea.y2, target.y));
+		!inInterval(playArea.x1, playArea.x2, target.x) || 
+		!inInterval(playArea.y1, playArea.y2, target.y));
 	return target;
 }
 class Game {
